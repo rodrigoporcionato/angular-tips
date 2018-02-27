@@ -9,7 +9,6 @@
             <div formArrayName="itemRows">
               <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
                 <span>#{{ i + 1 }}</span>
-
                 <label class="sr-only" for="inlineFormInputName2">Product</label>
                 <input type="text" formControlName="product" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="product">
 
