@@ -36,13 +36,12 @@ export class TesteAddforminputComponent implements OnInit {
       control.removeAt(index);
       this.calcTotal();
   }
-
   calcTotal() {
-    console.clear();
     this.total = 0;
     this.invoiceForm.value.itemRows.forEach(x => {
       this.total += parseFloat(x.price);
     });
+    console.clear();
     console.log(this.total);
   }
 }
