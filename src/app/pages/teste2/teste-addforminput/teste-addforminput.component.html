@@ -1,0 +1,34 @@
+
+
+<div class="card">
+    <div class="card-header">
+        Products
+      </div>
+    <div class="card-body">
+        <form [formGroup]="invoiceForm" class="form-inline">
+            <div formArrayName="itemRows">
+              <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
+                <span>#{{ i + 1 }}</span>
+
+                <label class="sr-only" for="inlineFormInputName2">Product</label>
+                <input type="text" formControlName="product" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="product">
+
+                <label class="sr-only" for="inlineFormInputName2">price</label>
+                <input type="number" formControlName="price" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="price">
+
+              <button type="button" (click)="addNewRow()" class="btn btn-primary">+</button>
+              <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">-</button>
+              </div>
+            </div>
+          </form>
+    </div>
+</div>
+    <hr>
+
+    <div ng-if="total > 0">
+        Total {{total | currency:'BRL'}}
+    </div>
+
+    <hr>
+    debug:
+    <pre>{{invoiceForm.value | json}}</pre>

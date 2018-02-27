@@ -1,0 +1,14 @@
+<p>
+  teste-novamente works!
+</p>
+
+
+<div >
+  <ul class="list">
+      <li *ngFor="let p of priceModel" >
+          <input type="text" ng-model="p" placeholder="valor">
+          <button (click)="addNew()" class="btn btn-primary">+</button>
+          <button *ngIf="priceModel.length > 1" (click)="remove(p)" class="btn btn-primary">-</button>
+      </li>
+  </ul>
+</div>
